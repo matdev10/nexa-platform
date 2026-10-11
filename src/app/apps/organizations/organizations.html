@@ -1,0 +1,46 @@
+<section class="nexa-page">
+  <header class="nexa-page__header">
+    <div>
+      <span class="nexa-page__eyebrow">Organizaciones</span>
+
+      <h1>Tus organizaciones</h1>
+
+      <p>Elige dónde quieres trabajar o crea una nueva.</p>
+    </div>
+
+    <button
+      type="button"
+      class="nexa-button"
+      (click)="createOrganization()"
+    >
+      Crear organización
+    </button>
+  </header>
+
+  @if (isLoading()) {
+    <p class="nexa-status">Cargando organizaciones...</p>
+  } @else if (errorMessage()) {
+    <p class="nexa-error">{{ errorMessage() }}</p>
+  } @else if (organizations().length === 0) {
+    <div class="nexa-empty">
+      <strong>No tienes organizaciones registradas</strong>
+
+      <p>Crea la primera para empezar a configurar Nexa.</p>
+    </div>
+  } @else {
+    <div class="nexa-list">
+      @for (organization of organizations(); track organization.id) {
+        <button
+          type="button"
+          class="nexa-list__item"
+          (click)="selectOrganization(organization)"
+        >
+          <span>
+            <strong>{{ organization.name }}</strong>
+            <span>{{ organization.country }} · {{ organization.currency }}</span>
+          </span>
+        </button>
+      }
+    </div>
+  }
+</section>

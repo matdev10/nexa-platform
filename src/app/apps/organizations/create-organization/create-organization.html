@@ -1,0 +1,106 @@
+<section class="nexa-page">
+  <a class="nexa-back" routerLink="/organizations">Volver a organizaciones</a>
+
+  <header class="nexa-page__header">
+    <div>
+      <span class="nexa-page__eyebrow">Organización</span>
+
+      <h1>Crear organización</h1>
+
+      <p>Completa los datos básicos de tu empresa para comenzar a utilizar Nexa.</p>
+    </div>
+  </header>
+
+  <form
+    class="nexa-card nexa-form"
+    (ngSubmit)="onSubmit()"
+    #organizationForm="ngForm"
+  >
+    <div class="nexa-field">
+      <label for="name">Nombre de la organización</label>
+
+      <input
+        id="name"
+        name="name"
+        type="text"
+        [(ngModel)]="name"
+        required
+        placeholder="Ej: Millwords"
+      />
+    </div>
+
+    <div class="nexa-field">
+      <label for="legalName">Razón social</label>
+
+      <input
+        id="legalName"
+        name="legalName"
+        type="text"
+        [(ngModel)]="legalName"
+        placeholder="Ej: Millwords SpA"
+      />
+    </div>
+
+    <div class="nexa-field">
+      <label for="taxId">RUT</label>
+
+      <input
+        id="taxId"
+        name="taxId"
+        type="text"
+        [(ngModel)]="taxId"
+        placeholder="Ej: 76.123.456-7"
+      />
+    </div>
+
+    <div class="nexa-field">
+      <label for="country">País</label>
+
+      <select
+        id="country"
+        name="country"
+        [(ngModel)]="country"
+      >
+        <option value="CL">Chile</option>
+      </select>
+    </div>
+
+    <div class="nexa-field">
+      <label for="currency">Moneda</label>
+
+      <select
+        id="currency"
+        name="currency"
+        [(ngModel)]="currency"
+      >
+        <option value="CLP">Peso chileno (CLP)</option>
+      </select>
+    </div>
+
+    <div class="nexa-field">
+      <label for="timezone">Zona horaria</label>
+
+      <select
+        id="timezone"
+        name="timezone"
+        [(ngModel)]="timezone"
+      >
+        <option value="America/Santiago">Santiago</option>
+      </select>
+    </div>
+
+    @if (errorMessage()) {
+      <p class="nexa-error">{{ errorMessage() }}</p>
+    }
+
+    <div class="nexa-actions">
+      <button
+        type="submit"
+        class="nexa-button"
+        [disabled]="isLoading()"
+      >
+        {{ isLoading() ? 'Creando...' : 'Crear organización' }}
+      </button>
+    </div>
+  </form>
+</section>

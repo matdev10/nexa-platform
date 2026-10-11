@@ -1,0 +1,84 @@
+<section class="dashboard">
+  <header class="dashboard__header">
+    <div>
+      <span class="dashboard__eyebrow"> Dashboard </span>
+
+      <h1>
+        Hola,
+        {{ currentUser()?.firstName || 'usuario' }}
+      </h1>
+
+      <p>Este es el centro de actividad de tu Workspace.</p>
+    </div>
+  </header>
+
+  <section class="dashboard__context">
+    <div class="dashboard__context-item">
+      <span> Organización </span>
+
+      <strong>
+        {{ activeOrganization()?.name || 'Sin organización' }}
+      </strong>
+    </div>
+
+    <div class="dashboard__context-divider"></div>
+
+    <div class="dashboard__context-item">
+      <span> Workspace </span>
+
+      <strong>
+        {{ activeWorkspace()?.name || 'Sin Workspace' }}
+      </strong>
+    </div>
+  </section>
+
+  <section class="dashboard__modules">
+    <a class="dashboard__module-card dashboard__module-card--link" routerLink="/clients">
+      <span class="dashboard__module-status dashboard__module-status--live"> Disponible </span>
+
+      <h2>Clientes</h2>
+
+      <p>Centraliza clientes, contactos y relaciones comerciales.</p>
+    </a>
+
+    <article class="dashboard__module-card">
+      <span class="dashboard__module-status"> Próximamente </span>
+
+      <h2>Ventas</h2>
+
+      <p>Gestiona oportunidades, ventas y seguimiento comercial.</p>
+    </article>
+
+    <article class="dashboard__module-card">
+      <span class="dashboard__module-status"> Próximamente </span>
+
+      <h2>Inventario</h2>
+
+      <p>Controla productos, existencias y movimientos de inventario.</p>
+    </article>
+
+    <article class="dashboard__module-card">
+      <span class="dashboard__module-status"> Próximamente </span>
+
+      <h2>Proyectos</h2>
+
+      <p>Organiza el trabajo y seguimiento de proyectos.</p>
+    </article>
+  </section>
+
+  <section class="dashboard__activity">
+    <div class="dashboard__section-header">
+      <div>
+        <span class="dashboard__eyebrow"> Actividad </span>
+
+        <h2>Actividad reciente</h2>
+      </div>
+    </div>
+
+    <div class="dashboard__empty-state">
+      <strong> Todavía no hay actividad </strong>
+
+      <p>Las acciones realizadas dentro de este Workspace aparecerán aquí.</p>
+    </div>
+  </section>
+</section>

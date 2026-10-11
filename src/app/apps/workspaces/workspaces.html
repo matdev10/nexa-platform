@@ -1,0 +1,49 @@
+<section class="nexa-page">
+  <header class="nexa-page__header">
+    <div>
+      <span class="nexa-page__eyebrow">Workspaces</span>
+
+      <h1>Espacios de esta organización</h1>
+
+      <p>El workspace define el contexto operativo.</p>
+    </div>
+
+    <button
+      type="button"
+      class="nexa-button"
+      (click)="createWorkspace()"
+    >
+      Crear Workspace
+    </button>
+  </header>
+
+  @if (isLoading()) {
+    <p class="nexa-status">Cargando Workspaces...</p>
+  } @else if (errorMessage()) {
+    <p class="nexa-error">{{ errorMessage() }}</p>
+  } @else if (workspaces().length === 0) {
+    <div class="nexa-empty">
+      <strong>Esta organización todavía no tiene Workspaces</strong>
+
+      <p>Crea el primero para entrar al dashboard.</p>
+    </div>
+  } @else {
+    <div class="nexa-list">
+      @for (workspace of workspaces(); track workspace.id) {
+        <button
+          type="button"
+          class="nexa-list__item"
+          (click)="selectWorkspace(workspace)"
+        >
+          <span>
+            <strong>{{ workspace.name }}</strong>
+
+            @if (workspace.description) {
+              <span>{{ workspace.description }}</span>
+            }
+          </span>
+        </button>
+      }
+    </div>
+  }
+</section>

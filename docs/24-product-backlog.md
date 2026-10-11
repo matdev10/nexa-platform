@@ -46,7 +46,7 @@ HU-007 Dashboard
 
 Estado
 
-Pendiente
+En curso. Registro, login, recuperación de contraseña, organización y dashboard ya tienen superficie en el frontend.
 
 ---
 
@@ -100,7 +100,7 @@ HU-035 Exportar
 
 Estado
 
-Pendiente
+En curso. HU-030 cubre listar, buscar, crear, editar y eliminar clientes del Workspace activo. Importar, exportar, historial y etiquetas siguen pendientes.
 
 ---
 
@@ -266,8 +266,90 @@ HU-116 OpenAI
 
 Sprint actual
 
-Sprint 0
+Sprint 01 — Core Foundation
 
 Estado
 
-Documentación
+Frontend del núcleo, App Shell y Clientes en curso. La API esperada sigue en localhost:5068.
+
+
+# ACTUALIZACION 27 AGOSTO 2026 #
+
+CORE FOUNDATION
+✅ Authentication
+✅ Organizations
+✅ Workspaces
+✅ JWT
+✅ Guards
+✅ Context persistence
+✅ Logout
+✅ Angular/API integration
+
+APP SHELL
+⬜ AppLayout
+⬜ Sidebar
+⬜ Topbar
+⬜ Organization switcher
+⬜ Workspace switcher
+⬜ User menu
+⬜ Main router surface
+⬜ Responsive shell
+
+DASHBOARD FOUNDATION
+⬜ Dashboard header
+⬜ Metrics cards
+⬜ Recent activity
+⬜ Quick actions
+⬜ Workspace summary
+
+FUTURE SHELL
+⬜ Context panel
+⬜ Global search
+⬜ Command palette
+⬜ Notifications
+⬜ Nexa AI
+
+
+# ACTUALIZACION 10 OCTUBRE 2026 #
+
+Esta actualización reemplaza el estado del 27 de agosto.
+
+CORE FOUNDATION
+✅ Authentication
+✅ Organizations
+✅ Workspaces
+✅ JWT
+✅ Guards
+✅ Context persistence
+✅ Logout en el menú de usuario
+✅ Angular/API integration
+✅ Recuperar contraseña
+⬜ Verificar correo
+
+APP SHELL
+✅ AppLayout
+✅ Sidebar
+✅ Topbar
+✅ Organization switcher
+✅ Workspace switcher
+✅ User menu
+✅ Main router surface
+✅ Fondo de la superficie principal
+⬜ Responsive shell pulido en móvil
+
+DASHBOARD FOUNDATION
+✅ Dashboard header
+✅ Workspace summary
+✅ Actividad reciente vacía
+⬜ Metrics cards
+⬜ Quick actions
+
+CLIENTES
+✅ Listar, buscar, crear y editar contra /api/customers
+✅ Desactivar (la API no borra; cambia el estado a inactive)
+⬜ Importar
+⬜ Exportar
+⬜ Historial
+⬜ Etiquetas
+
+Buscar y Notificaciones de la topbar quedan ocultos hasta que existan como funciones del shell.

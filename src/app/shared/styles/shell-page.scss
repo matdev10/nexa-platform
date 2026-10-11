@@ -1,0 +1,310 @@
+.nexa-page {
+  max-width: 1280px;
+
+  margin: 0 auto;
+
+  padding: 40px;
+}
+
+.nexa-page__header {
+  margin-bottom: 28px;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.nexa-page__eyebrow {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: #9ca3af;
+
+  font-size: 10px;
+  font-weight: 700;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.nexa-page h1 {
+  margin: 0;
+
+  color: #111827;
+
+  font-size: 30px;
+  font-weight: 700;
+
+  letter-spacing: -0.03em;
+}
+
+.nexa-page__header p,
+.nexa-page__intro {
+  margin: 8px 0 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.nexa-back {
+  display: inline-flex;
+
+  margin-bottom: 14px;
+
+  color: #6b7280;
+
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.nexa-back:hover {
+  color: #111827;
+}
+
+.nexa-button {
+  min-height: 40px;
+
+  padding: 0 14px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: #111827;
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.nexa-button:disabled {
+  opacity: 0.55;
+
+  cursor: default;
+}
+
+.nexa-button--ghost {
+  border: 1px solid #e5e7eb;
+
+  background: #ffffff;
+  color: #374151;
+}
+
+.nexa-button--danger {
+  background: #ffffff;
+  color: #b91c1c;
+
+  border: 1px solid #fecaca;
+}
+
+.nexa-card {
+  padding: 22px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+
+  background: #ffffff;
+}
+
+.nexa-form {
+  max-width: 640px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.nexa-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.nexa-field label {
+  color: #374151;
+
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.nexa-field input,
+.nexa-field textarea,
+.nexa-field select {
+  width: 100%;
+
+  min-height: 42px;
+
+  padding: 10px 12px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 14px;
+}
+
+.nexa-field textarea {
+  min-height: 110px;
+
+  resize: vertical;
+}
+
+.nexa-field input:focus,
+.nexa-field textarea:focus,
+.nexa-field select:focus {
+  outline: 2px solid #111827;
+  outline-offset: 1px;
+}
+
+.nexa-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.nexa-error {
+  margin: 0;
+
+  color: #b91c1c;
+
+  font-size: 13px;
+}
+
+.nexa-status {
+  margin: 0;
+
+  color: #6b7280;
+
+  font-size: 14px;
+}
+
+.nexa-empty {
+  padding: 36px 20px;
+
+  text-align: center;
+
+  border: 1px dashed #d1d5db;
+  border-radius: 12px;
+
+  background: #ffffff;
+}
+
+.nexa-empty strong {
+  color: #374151;
+
+  font-size: 14px;
+}
+
+.nexa-empty p {
+  max-width: 420px;
+
+  margin: 7px auto 0;
+
+  color: #9ca3af;
+
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.nexa-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.nexa-list__item {
+  width: 100%;
+
+  padding: 16px 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  background: #ffffff;
+  color: inherit;
+
+  font: inherit;
+  text-align: left;
+  text-decoration: none;
+
+  cursor: pointer;
+}
+
+.nexa-list__item:hover {
+  border-color: #d1d5db;
+
+  background: #fafafa;
+}
+
+.nexa-list__item strong {
+  display: block;
+
+  color: #111827;
+
+  font-size: 14px;
+}
+
+.nexa-list__item span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #6b7280;
+
+  font-size: 12px;
+}
+
+.nexa-search {
+  margin-bottom: 16px;
+
+  display: flex;
+  gap: 10px;
+}
+
+.nexa-search input {
+  flex: 1;
+
+  min-height: 40px;
+
+  padding: 0 12px;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+
+  background: #ffffff;
+  color: #111827;
+
+  font-size: 14px;
+}
+
+.nexa-search input:focus {
+  outline: 2px solid #111827;
+  outline-offset: 1px;
+}
+
+@media (max-width: 900px) {
+  .nexa-page {
+    padding: 26px 20px;
+  }
+
+  .nexa-page__header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .nexa-search {
+    flex-direction: column;
+  }
+}

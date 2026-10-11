@@ -1,0 +1,124 @@
+<div class="topbar">
+  <div class="topbar__context">
+    <div class="topbar__context-wrapper">
+      <button type="button" class="topbar__context-button" (click)="toggleContextMenu($event)">
+        @if (activeOrganization()) {
+          <span class="topbar__organization">
+            {{ activeOrganization()?.name }}
+          </span>
+        } @else {
+          <span>Sin organización</span>
+        }
+
+        @if (activeWorkspace()) {
+          <span class="topbar__separator">/</span>
+
+          <span class="topbar__workspace">
+            {{ activeWorkspace()?.name }}
+          </span>
+        }
+
+        <span class="topbar__context-chevron">▾</span>
+      </button>
+
+      @if (contextMenuOpen) {
+        <div class="topbar__context-menu" (click)="$event.stopPropagation()">
+          <div class="topbar__organization-list">
+            <span class="topbar__context-label">Organizaciones</span>
+
+            @if (isLoadingOrganizations) {
+              <span class="topbar__workspace-status">Cargando organizaciones...</span>
+            } @else if (organizations.length === 0) {
+              <span class="topbar__workspace-status">No hay organizaciones disponibles.</span>
+            } @else {
+              @for (organization of organizations; track organization.id) {
+                <button
+                  type="button"
+                  class="topbar__organization-option"
+                  [class.is-active]="activeOrganization()?.id === organization.id"
+                  (click)="selectOrganization(organization)"
+                >
+                  <span class="topbar__workspace-indicator">
+                    @if (activeOrganization()?.id === organization.id) {
+                      ●
+                    }
+                  </span>
+
+                  <span>{{ organization.name }}</span>
+                </button>
+              }
+            }
+          </div>
+
+          <div class="topbar__workspace-list">
+            <span class="topbar__context-label">Workspaces</span>
+
+            @if (isLoadingWorkspaces) {
+              <span class="topbar__workspace-status">Cargando Workspaces...</span>
+            } @else if (workspaces.length === 0) {
+              <span class="topbar__workspace-status">No hay Workspaces disponibles.</span>
+            } @else {
+              @for (workspace of workspaces; track workspace.id) {
+                <button
+                  type="button"
+                  class="topbar__workspace-option"
+                  [class.is-active]="activeWorkspace()?.id === workspace.id"
+                  (click)="selectWorkspace(workspace)"
+                >
+                  <span class="topbar__workspace-indicator">
+                    @if (activeWorkspace()?.id === workspace.id) {
+                      ●
+                    }
+                  </span>
+
+                  <span>{{ workspace.name }}</span>
+                </button>
+              }
+            }
+          </div>
+
+          <div class="topbar__context-divider"></div>
+
+          <button type="button" (click)="manageOrganizations()">Administrar organizaciones</button>
+
+          <button type="button" (click)="manageWorkspaces()">Administrar Workspaces</button>
+        </div>
+      }
+    </div>
+  </div>
+
+  <div class="topbar__actions">
+    <div class="topbar__user-wrapper">
+      <button type="button" class="topbar__user" (click)="toggleUserMenu($event)">
+        @if (currentUser()) {
+          <span class="topbar__avatar">
+            {{ currentUser()?.firstName?.charAt(0) }}
+            {{ currentUser()?.lastName?.charAt(0) }}
+          </span>
+
+          <span class="topbar__user-name">
+            {{ currentUser()?.firstName }}
+            {{ currentUser()?.lastName }}
+          </span>
+        }
+      </button>
+
+      @if (userMenuOpen) {
+        <div class="topbar__user-menu" (click)="$event.stopPropagation()">
+          @if (currentUser()) {
+            <div class="topbar__user-meta">
+              <strong>
+                {{ currentUser()?.firstName }}
+                {{ currentUser()?.lastName }}
+              </strong>
+
+              <span>{{ currentUser()?.email }}</span>
+            </div>
+          }
+
+          <button type="button" (click)="logout()">Cerrar sesión</button>
+        </div>
+      }
+    </div>
+  </div>
+</div>

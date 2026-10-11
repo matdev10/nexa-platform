@@ -224,3 +224,25 @@ Toda nueva App deberá respetar estos principios.
 Toda nueva pantalla deberá respetar estos principios.
 
 Toda nueva decisión deberá respetar estos principios.
+
+
+## Continuous Command Center
+
+Nexa debe sentirse como un centro de mando continuo.
+
+El usuario puede cambiar de organización, Workspace, módulo o tarea,
+pero la estructura principal de la plataforma debe permanecer estable.
+
+La navegación no debe sentirse como una sucesión de páginas aisladas.
+
+Principios:
+
+- navegación global persistente;
+- contexto activo siempre visible;
+- cambios de módulo sin romper el entorno de trabajo;
+- acciones secundarias mediante paneles, drawers o modales cuando sea apropiado;
+- minimizar salidas innecesarias del App Shell;
+- mantener continuidad visual y operacional.
+
+La experiencia debe transmitir que el usuario permanece dentro de Nexa
+mientras cambia el contenido que está operando.

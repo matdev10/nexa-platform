@@ -1,0 +1,58 @@
+<section class="nexa-page">
+  <a class="nexa-back" routerLink="/workspaces">Volver a Workspaces</a>
+
+  <header class="nexa-page__header">
+    <div>
+      <span class="nexa-page__eyebrow">Workspace</span>
+
+      <h1>Crear Workspace</h1>
+
+      <p>Crea el espacio de trabajo para esta organización.</p>
+    </div>
+  </header>
+
+  <form
+    class="nexa-card nexa-form"
+    (ngSubmit)="onSubmit()"
+    #workspaceForm="ngForm"
+  >
+    <div class="nexa-field">
+      <label for="name">Nombre del Workspace</label>
+
+      <input
+        id="name"
+        name="name"
+        type="text"
+        [(ngModel)]="name"
+        required
+        placeholder="Ej: Principal"
+      />
+    </div>
+
+    <div class="nexa-field">
+      <label for="description">Descripción</label>
+
+      <textarea
+        id="description"
+        name="description"
+        [(ngModel)]="description"
+        placeholder="Ej: Workspace principal de la empresa"
+        rows="4"
+      ></textarea>
+    </div>
+
+    @if (errorMessage()) {
+      <p class="nexa-error">{{ errorMessage() }}</p>
+    }
+
+    <div class="nexa-actions">
+      <button
+        type="submit"
+        class="nexa-button"
+        [disabled]="isLoading() || workspaceForm.invalid"
+      >
+        {{ isLoading() ? 'Creando...' : 'Crear Workspace' }}
+      </button>
+    </div>
+  </form>
+</section>

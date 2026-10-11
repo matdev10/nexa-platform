@@ -1,0 +1,40 @@
+.nexa-shell {
+  min-height: 100vh;
+
+  display: grid;
+  grid-template-columns: 260px minmax(0, 1fr);
+}
+
+.nexa-shell__sidebar {
+  min-height: 100vh;
+}
+
+.nexa-shell__workspace {
+  min-width: 0;
+
+  display: grid;
+  grid-template-rows: 72px minmax(0, 1fr);
+}
+
+.nexa-shell__topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.nexa-shell__main {
+  min-width: 0;
+  min-height: 0;
+
+  overflow: auto;
+
+  background: #f4f5f7;
+}
+
+/* responsive*/
+
+@media (max-width: 900px) {
+  .nexa-shell {
+    grid-template-columns: 72px minmax(0, 1fr);
+  }
+}

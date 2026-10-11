@@ -1,0 +1,62 @@
+<section class="nexa-page">
+  <header class="nexa-page__header">
+    <div>
+      <span class="nexa-page__eyebrow">CRM</span>
+
+      <h1>Clientes</h1>
+
+      <p>Personas y empresas con las que trabaja este Workspace.</p>
+    </div>
+
+    <button type="button" class="nexa-button" (click)="createClient()">
+      Crear cliente
+    </button>
+  </header>
+
+  <form class="nexa-search" (ngSubmit)="onSearch()">
+    <input
+      name="search"
+      type="search"
+      [(ngModel)]="search"
+      placeholder="Buscar por nombre, correo o empresa"
+    />
+
+    <button type="submit" class="nexa-button nexa-button--ghost">Buscar</button>
+  </form>
+
+  @if (isLoading()) {
+    <p class="nexa-status">Cargando clientes...</p>
+  } @else if (errorMessage()) {
+    <p class="nexa-error">{{ errorMessage() }}</p>
+  } @else if (visibleClients().length === 0) {
+    <div class="nexa-empty">
+      <strong>
+        {{ searchTerm() ? 'No hay clientes para esa búsqueda' : 'Todavía no hay clientes' }}
+      </strong>
+
+      <p>Los clientes activos de este Workspace aparecerán aquí.</p>
+    </div>
+  } @else {
+    <div class="nexa-list">
+      @for (client of visibleClients(); track client.id) {
+        <div class="nexa-list__item nexa-list__item--static">
+          <a [routerLink]="['/clients', client.id]">
+            <strong>{{ client.name }}</strong>
+
+            @if (details(client)) {
+              <span>{{ details(client) }}</span>
+            }
+          </a>
+
+          <button
+            type="button"
+            class="nexa-button nexa-button--danger"
+            (click)="deactivate(client, $event)"
+          >
+            Desactivar
+          </button>
+        </div>
+      }
+    </div>
+  }
+</section>

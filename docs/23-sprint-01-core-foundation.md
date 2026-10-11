@@ -4,7 +4,7 @@
 
 Estado
 
-En planificación
+En curso en el frontend. Falta la API en localhost:5068 para cerrarlo de punta a punta.
 
 ---
 
@@ -100,4 +100,4 @@ Dashboard
 
 ## Estado
 
-Pendiente
+En curso. Las pantallas del sprint ya están en el frontend. La verificación completa depende de la API.
